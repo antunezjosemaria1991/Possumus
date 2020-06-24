@@ -1,0 +1,16 @@
+C:\Possumus\PossumusAPI\PossumusAPI\obj\Debug\netcoreapp2.2\PossumusAPI.RazorAssemblyInfo.cache
+C:\Possumus\PossumusAPI\PossumusAPI\obj\Debug\netcoreapp2.2\PossumusAPI.RazorAssemblyInfo.cs
+C:\Possumus\PossumusAPI\PossumusAPI\obj\Debug\netcoreapp2.2\PossumusAPI.AssemblyInfoInputs.cache
+C:\Possumus\PossumusAPI\PossumusAPI\obj\Debug\netcoreapp2.2\PossumusAPI.AssemblyInfo.cs
+C:\Possumus\PossumusAPI\PossumusAPI\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Possumus\PossumusAPI\PossumusAPI\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Possumus\PossumusAPI\PossumusAPI\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+C:\Possumus\PossumusAPI\PossumusAPI\bin\Debug\netcoreapp2.2\PossumusAPI.deps.json
+C:\Possumus\PossumusAPI\PossumusAPI\bin\Debug\netcoreapp2.2\PossumusAPI.runtimeconfig.json
+C:\Possumus\PossumusAPI\PossumusAPI\bin\Debug\netcoreapp2.2\PossumusAPI.runtimeconfig.dev.json
+C:\Possumus\PossumusAPI\PossumusAPI\bin\Debug\netcoreapp2.2\PossumusAPI.dll
+C:\Possumus\PossumusAPI\PossumusAPI\bin\Debug\netcoreapp2.2\PossumusAPI.pdb
+C:\Possumus\PossumusAPI\PossumusAPI\obj\Debug\netcoreapp2.2\PossumusAPI.RazorTargetAssemblyInfo.cache
+C:\Possumus\PossumusAPI\PossumusAPI\obj\Debug\netcoreapp2.2\PossumusAPI.dll
+C:\Possumus\PossumusAPI\PossumusAPI\obj\Debug\netcoreapp2.2\PossumusAPI.pdb
+C:\Possumus\PossumusAPI\PossumusAPI\obj\Debug\netcoreapp2.2\PossumusAPI.csprojAssemblyReference.cache
