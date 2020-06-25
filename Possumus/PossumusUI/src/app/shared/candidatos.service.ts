@@ -18,7 +18,7 @@ export class CandidatosService {
     return this.http.post(this.rootURL + '/Candidato', this.formData);
   }
   putCandidato() {
-    return this.http.put(this.rootURL + '/Candidato/'+ this.formData.id, this.formData);
+    return this.http.put(this.rootURL + '/Candidato/'+ this.formData.CandidatoId, this.formData);
   }
   deleteCandidato(id) {
     return this.http.delete(this.rootURL + '/Candidato/'+ id);

@@ -2,10 +2,10 @@
   <tr *ngFor="let c of service.list">
     <td (click)="populateForm(c)">{{c.Nombre}}</td>
     <td (click)="populateForm(c)">{{c.Apellido}}</td>
-    <td (click)="populateForm(c)">{{c.FechaDeNacimiento | date:'dd-MM-yyyy'}}</td>
+    <td (click)="populateForm(c)">{{c.FechaDeNacimiento | date:'dd-MM-yyyy' }}</td>
     <td (click)="populateForm(c)">{{c.Email}}</td>
     <td>
-      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(c.id)"></i>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(c.CandidatoId)"></i>
     </td>
   </tr>
 </table>

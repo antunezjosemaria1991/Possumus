@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { CandidatosService } from "src/app/shared/candidatos.service";
 import { NgForm } from "@angular/forms";
+import { HttpEventType, HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-candidato",
@@ -8,9 +9,11 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./candidato.component.css"],
 })
 export class CandidatoComponent implements OnInit {
-  constructor(
-    private service: CandidatosService
-  ) {}
+  public progress: number;
+  public message: string;
+  @Output() public onUploadFinished = new EventEmitter();
+
+  constructor(private service: CandidatosService, private http: HttpClient) {}
 
   ngOnInit() {
     this.resetForm();
@@ -19,7 +22,7 @@ export class CandidatoComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null) form.form.reset();
     this.service.formData = {
-      id: 0,
+      CandidatoId: 0,
       Nombre: "",
       Apellido: "",
       FechaDeNacimiento: null,
@@ -28,9 +31,12 @@ export class CandidatoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (this.service.formData.id == 0) this.insertRecord(form);
-    else debugger;
-    this.updateRecord(form);
+    if (this.service.formData.CandidatoId == 0) {
+      debugger;
+      this.insertRecord(form);
+    } else {
+      this.updateRecord(form);
+    }
   }
   insertRecord(form: NgForm) {
     this.service.postCandidato().subscribe(
@@ -57,4 +63,28 @@ export class CandidatoComponent implements OnInit {
       }
     );
   }
+
+  public uploadFile = (files) => {
+    if (files.length === 0) {
+      return;
+    }
+
+    let fileToUpload = <File>files[0];
+    const formData = new FormData();
+    formData.append("file", fileToUpload, fileToUpload.name);
+
+    this.http
+      .post("https://localhost:53755/api/upload", formData, {
+        reportProgress: true,
+        observe: "events",
+      })
+      .subscribe((event) => {
+        if (event.type === HttpEventType.UploadProgress)
+          this.progress = Math.round((100 * event.loaded) / event.total);
+        else if (event.type === HttpEventType.Response) {
+          this.message = "Upload success.";
+          this.onUploadFinished.emit(event.body);
+        }
+      });
+  };
 }

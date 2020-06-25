@@ -10,5 +10,6 @@ namespace PossumusAPI.Models
         }
 
         public DbSet<Candidato> Candidatos { get; set; }
+        public DbSet<Archivo> Archivos { get; set; }
     }
 }

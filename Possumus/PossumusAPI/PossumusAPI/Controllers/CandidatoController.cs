@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PossumusAPI.Models;
+using System.IO;
+using System.Net.Http.Headers;
 
 namespace PossumusAPI.Controllers
 {
@@ -45,7 +46,7 @@ namespace PossumusAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCandidato(int id, Candidato candidato)
         {
-            if (id != candidato.id)
+            if (id != candidato.CandidatoId)
             {
                 return BadRequest();
             }
@@ -78,7 +79,7 @@ namespace PossumusAPI.Controllers
             _context.Candidatos.Add(candidato);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCandidato", new { id = candidato.id }, candidato);
+            return CreatedAtAction("GetCandidato", new { id = candidato.CandidatoId }, candidato);
         }
 
         // DELETE: api/Candidato/5
@@ -99,7 +100,40 @@ namespace PossumusAPI.Controllers
 
         private bool CandidatoExists(int id)
         {
-            return _context.Candidatos.Any(e => e.id == id);
+            return _context.Candidatos.Any(e => e.CandidatoId == id);
         }
+
+        //[HttpPost, DisableRequestSizeLimit]
+        //public IActionResult Upload()
+        //{
+        //    try
+        //    {
+        //        var file = Request.Form.Files[0];
+        //        var folderName = Path.Combine("Resources", "Images");
+        //        var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+        //        if (file.Length > 0)
+        //        {
+        //            var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+        //            var fullPath = Path.Combine(pathToSave, fileName);
+        //            var dbPath = Path.Combine(folderName, fileName);
+
+        //            using (var stream = new FileStream(fullPath, FileMode.Create))
+        //            {
+        //                file.CopyTo(stream);
+        //            }
+
+        //            return Ok(new { dbPath });
+        //        }
+        //        else
+        //        {
+        //            return BadRequest();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Internal server error: {ex}");
+        //    }
+        //}
     }
 }

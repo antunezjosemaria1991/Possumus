@@ -1,5 +1,5 @@
 export class Candidato {
-  id :number;
+  CandidatoId :number;
   Nombre: string;
   Apellido: string;
   FechaDeNacimiento: Date;

@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Newtonsoft.Json.Serialization;
 using PossumusAPI.Models;
+using System.IO;
 
 namespace PossumusAPI
 {
@@ -23,11 +27,19 @@ namespace PossumusAPI
         {
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(options => {
+                .AddJsonOptions(options =>
+                {
                     var resolver = options.SerializerSettings.ContractResolver;
                     if (resolver != null)
                         (resolver as DefaultContractResolver).NamingStrategy = null;
                 });
+
+            //services.Configure<FormOptions>(o =>
+            //{
+            //    o.ValueLengthLimit = int.MaxValue;
+            //    o.MultipartBodyLengthLimit = int.MaxValue;
+            //    o.MemoryBufferThreshold = int.MaxValue;
+            //});
 
             services.AddDbContext<PossumusContext>(options =>
            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
@@ -47,6 +59,13 @@ namespace PossumusAPI
             options.WithOrigins("http://localhost:4200")
             .AllowAnyMethod()
             .AllowAnyHeader());
+
+            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
+                RequestPath = new PathString("/Resources")
+            });
 
             app.UseMvc();
         }

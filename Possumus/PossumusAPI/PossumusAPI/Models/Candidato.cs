@@ -7,7 +7,7 @@ namespace PossumusAPI.Models
     public class Candidato
     {
         [Key]
-        public int id { get; set; }
+        public int CandidatoId { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(100)")]
         public string Nombre { get; set; }
@@ -18,6 +18,8 @@ namespace PossumusAPI.Models
         public DateTime FechaDeNacimiento { get; set; }
 
         public string Email { get; set; }
+
+        public string Cv { get; set; }
 
     }
 }
