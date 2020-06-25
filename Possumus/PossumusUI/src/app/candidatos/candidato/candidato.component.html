@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <!-- Apelldo -->
+    <!-- Apellido -->
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -24,6 +24,19 @@
         </div>
         <input name="Apellido" #Nombre="ngModel" [(ngModel)]="service.formData.Apellido" class="form-control"
           placeholder="Apellido">
+      </div>
+    </div>
+
+    <!-- Fecha de Nacimiento -->
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+        <input type="date" name="FechaDeNacimiento" #FechaDeNacimiento="ngModel" [(ngModel)]="service.formData.FechaDeNacimiento" class="form-control"
+          placeholder="Fecha De Nacimiento">
       </div>
     </div>
 

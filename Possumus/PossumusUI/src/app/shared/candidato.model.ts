@@ -2,6 +2,6 @@ export class Candidato {
   id :number;
   Nombre: string;
   Apellido: string;
-  //FechaDeNacimiento: Date;
+  FechaDeNacimiento: Date;
   Email: string;
 }

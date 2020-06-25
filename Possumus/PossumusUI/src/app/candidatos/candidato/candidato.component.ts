@@ -22,7 +22,7 @@ export class CandidatoComponent implements OnInit {
       id: 0,
       Nombre: "",
       Apellido: "",
-      //FechaDeNacimiento: null,
+      FechaDeNacimiento: null,
       Email: "",
     };
   }

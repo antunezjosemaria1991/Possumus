@@ -15,6 +15,7 @@ export class CandidatoListComponent implements OnInit {
   }
 
   populateForm(pd: Candidato) {
+    debugger;
     this.service.formData = Object.assign({}, pd);
   }
 

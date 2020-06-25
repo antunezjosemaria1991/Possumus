@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Possumus\\PossumusAPI\\PossumusAPI\\PossumusAPI.csproj": {}
+    "C:\\Repo2020\\Possumus\\PossumusAPI\\PossumusAPI\\PossumusAPI.csproj": {}
   },
   "projects": {
-    "C:\\Possumus\\PossumusAPI\\PossumusAPI\\PossumusAPI.csproj": {
+    "C:\\Repo2020\\Possumus\\PossumusAPI\\PossumusAPI\\PossumusAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Possumus\\PossumusAPI\\PossumusAPI\\PossumusAPI.csproj",
+        "projectUniqueName": "C:\\Repo2020\\Possumus\\PossumusAPI\\PossumusAPI\\PossumusAPI.csproj",
         "projectName": "PossumusAPI",
-        "projectPath": "C:\\Possumus\\PossumusAPI\\PossumusAPI\\PossumusAPI.csproj",
+        "projectPath": "C:\\Repo2020\\Possumus\\PossumusAPI\\PossumusAPI\\PossumusAPI.csproj",
         "packagesPath": "C:\\Users\\JOSE\\.nuget\\packages\\",
-        "outputPath": "C:\\Possumus\\PossumusAPI\\PossumusAPI\\obj\\",
+        "outputPath": "C:\\Repo2020\\Possumus\\PossumusAPI\\PossumusAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
