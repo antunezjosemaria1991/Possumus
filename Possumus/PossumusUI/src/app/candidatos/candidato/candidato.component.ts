@@ -65,6 +65,8 @@ export class CandidatoComponent implements OnInit {
   }
 
   public uploadFile = (files) => {
+
+    debugger;
     if (files.length === 0) {
       return;
     }
@@ -74,7 +76,7 @@ export class CandidatoComponent implements OnInit {
     formData.append("file", fileToUpload, fileToUpload.name);
 
     this.http
-      .post("https://localhost:53755/api/upload", formData, {
+      .post("http://localhost:53755/api/upload", formData, {
         reportProgress: true,
         observe: "events",
       })

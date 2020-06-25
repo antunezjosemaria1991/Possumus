@@ -32,17 +32,17 @@ namespace PossumusAPI
                     var resolver = options.SerializerSettings.ContractResolver;
                     if (resolver != null)
                         (resolver as DefaultContractResolver).NamingStrategy = null;
-                });
-
-            //services.Configure<FormOptions>(o =>
-            //{
-            //    o.ValueLengthLimit = int.MaxValue;
-            //    o.MultipartBodyLengthLimit = int.MaxValue;
-            //    o.MemoryBufferThreshold = int.MaxValue;
-            //});
+                });            
 
             services.AddDbContext<PossumusContext>(options =>
            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
+            services.Configure<FormOptions>(o =>
+            {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
 
             services.AddCors();
         }
@@ -59,8 +59,9 @@ namespace PossumusAPI
             options.WithOrigins("http://localhost:4200")
             .AllowAnyMethod()
             .AllowAnyHeader());
-
+            
             app.UseStaticFiles();
+
             app.UseStaticFiles(new StaticFileOptions()
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
