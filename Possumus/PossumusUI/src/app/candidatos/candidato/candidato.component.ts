@@ -1,7 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
-import { CandidatosService } from "src/app/shared/candidatos.service";
+import { CandidatosService } from "src/app/shared/empleos.service";
 import { NgForm } from "@angular/forms";
 import { HttpEventType, HttpClient } from "@angular/common/http";
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { EmpleosComponent } from 'src/app/empleos/empleos.component';
 
 @Component({
   selector: "app-candidato",
@@ -13,7 +15,7 @@ export class CandidatoComponent implements OnInit {
   public message: string;
   @Output() public onUploadFinished = new EventEmitter();
 
-  constructor(private service: CandidatosService, private http: HttpClient) {}
+  constructor(private service: CandidatosService, private http: HttpClient, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.resetForm();
@@ -62,6 +64,17 @@ export class CandidatoComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  AddOrEditEmpleo(orderItemIndex, EmpleoId) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "50%";
+    dialogConfig.data = { orderItemIndex, EmpleoId };
+    this.dialog.open(EmpleosComponent, dialogConfig).afterClosed().subscribe(res => {
+      //this.updateGrandTotal();
+    });
   }
 
   public uploadFile = (files) => {

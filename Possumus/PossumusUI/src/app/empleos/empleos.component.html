@@ -1,0 +1,41 @@
+<h4 class="dispaly-4">Empleos</h4>
+<hr>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <!-- <input type="hidden"  name="OrderItemID" #OrderItemID="ngModel" [(ngModel)]="formData.OrderItemID">
+    <input type="hidden"  name="OrderID" #OrderID="ngModel" [(ngModel)]="formData.OrderID"> -->
+  <!-- <input type="hidden"  name="ItemName" #ItemName="ngModel" [(ngModel)]="formData.ItemName"> -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Empresa</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input name="Nombre" #Nombre="ngModel" [(ngModel)]="formData.Nombre" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Desde (ej: 2004)</label>
+      <input name="PeriodoDesde" #PeriodoDesde="ngModel" [(ngModel)]="formData.PeriodoDesde" class="form-control">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>Hasta (ej: 2008)</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <input name="PeriodoHasta" #PeriodoHasta="ngModel" [(ngModel)]="formData.PeriodoHasta" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i>
+      Close</button>
+  </div>
+</form>
